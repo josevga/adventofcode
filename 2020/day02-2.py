@@ -14,6 +14,6 @@ for line in lines:
     pos1, pos2 = (int(x) for x in positions.split("-"))
     find1 = password[pos1 - 1] == letter if pos1 <= len(password) else False
     find2 = password[pos2 - 1] == letter if pos2 <= len(password) else False
-    if (find1 and not find2) or (not find1 and find2):
+    if find1 ^ find2:  # XOR
         valid += 1
 print(f"{valid=}")
